@@ -16,7 +16,8 @@
     "mocha": "^2.3.3"
   },
   "scripts": {
-    "test": "node_modules\\.bin\\mocha built/*.test.js"
+    "test": "node_modules\\.bin\\mocha built/*.test.js",
+    "babel": "node_modules\\.bin\\babel built/ --out-dir built/"
   },
   "keywords": [
     "linq"

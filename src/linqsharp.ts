@@ -1,6 +1,6 @@
 "use strict";
 
-namespace AssertSharp
+export namespace AssertSharp
 {
     export interface IEqualityComparer<T>
     {

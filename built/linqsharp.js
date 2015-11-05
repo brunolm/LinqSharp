@@ -38,7 +38,7 @@ var AssertSharp;
     }
     AssertSharp.StringifyNonCircular = StringifyNonCircular;
     ;
-})(AssertSharp || (AssertSharp = {}));
+})(AssertSharp = exports.AssertSharp || (exports.AssertSharp = {}));
 
 var Linq = (function () {
     function Linq() {
