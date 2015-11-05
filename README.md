@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/brunolm/LinqSharp.svg?branch=master)](https://travis-ci.org/brunolm/LinqSharp)
+
 # linqsharp
 
 LinqSharp is a NodeJS implementation of .NET's Linq.
