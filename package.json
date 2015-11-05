@@ -1,0 +1,26 @@
+{
+  "name": "linqsharp",
+  "version": "0.0.1",
+  "description": "Linq methods based on .NET",
+  "main": "./built/linqsharp.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brunolm/LinqSharp.git"
+  },
+  "devDependencies": {
+    "assertsharp": "^1.0.1",
+    "babel-core": "^6.0.20",
+    "babel-polyfill": "^6.0.16",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-stage-0": "^6.0.15",
+    "mocha": "^2.3.3"
+  },
+  "scripts": {
+    "test": "node_modules\\.bin\\mocha built/*.test.js"
+  },
+  "keywords": [
+    "linq"
+  ],
+  "author": "BrunoLM <brunolm7@gmail.com> (http://codingwise.com/)",
+  "license": "MIT"
+}

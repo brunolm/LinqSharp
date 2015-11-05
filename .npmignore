@@ -1,0 +1,9 @@
+node_modules/
+src/
+typings/
+*.test.js
+*.js.map
+.babelrc
+.travis.yml
+tsconfig.json
+jsconfig.json
