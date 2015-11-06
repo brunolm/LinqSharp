@@ -2,17 +2,13 @@
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
 
 function _instanceof(left, right) { if (right != null && right[Symbol.hasInstance]) { return right[Symbol.hasInstance](left); } else { return left instanceof right; } }
 
-var AssertSharp = exports.AssertSharp = undefined;
+var AssertSharp;
 (function (AssertSharp) {
     function GetHashCode(e) {
         if (_instanceof(e, Number)) return e.valueOf();
@@ -42,7 +38,7 @@ var AssertSharp = exports.AssertSharp = undefined;
     }
     AssertSharp.StringifyNonCircular = StringifyNonCircular;
     ;
-})(AssertSharp || (exports.AssertSharp = AssertSharp = {}));
+})(AssertSharp = exports.AssertSharp || (exports.AssertSharp = {}));
 
 var Linq = (function () {
     function Linq() {
@@ -80,6 +76,7 @@ var Linq = (function () {
         key: "Any",
         value: function Any(predicate) {
             var a = this.a;
+            if ((typeof predicate === "undefined" ? "undefined" : _typeof(predicate)) === undefined) return this.a.length > 0;
             for (var i = 0, n = a.length; i < n; ++i) {
                 if (predicate(a[i])) {
                     return true;
