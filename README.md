@@ -17,6 +17,12 @@ import Linq from "assertsharp"; // TS or Babel
 var Linq = require("assertsharp").default; // ES5-
 ```
 
+To access inner interfaces
+
+```
+import Linq, { LinqSharp } from "assertsharp";
+```
+
 # TypeScript definition
 
 A TypeScript definition can be found at `./linqsharp.d.ts`
