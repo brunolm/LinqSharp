@@ -1,6 +1,6 @@
 {
   "name": "linqsharp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Linq methods based on .NET",
   "main": "./built/linqsharp.js",
   "repository": {
