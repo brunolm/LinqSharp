@@ -1,6 +1,6 @@
 "use strict";
 
-export namespace AssertSharp
+export namespace LinqSharp
 {
     export interface IEqualityComparer<T>
     {
@@ -134,7 +134,7 @@ class Linq<T>
         return new Linq<T>(this.a.concat(array));
     }
 
-    Contains(value: T, comparer?: AssertSharp.IEqualityComparer<T>): boolean
+    Contains(value: T, comparer?: LinqSharp.IEqualityComparer<T>): boolean
     {
         if (!comparer)
             return this.Any(o => o === value);
@@ -150,12 +150,12 @@ class Linq<T>
         return this.a.length;
     }
 
-    Distinct(comparer?: AssertSharp.IEqualityComparer<T>): Linq<T>
+    Distinct(comparer?: LinqSharp.IEqualityComparer<T>): Linq<T>
     {
         return this.DistinctBy(o => o, comparer);
     }
 
-    DistinctBy<U>(selector: (e: T) => U, comparer?: AssertSharp.IEqualityComparer<T>): Linq<T>
+    DistinctBy<U>(selector: (e: T) => U, comparer?: LinqSharp.IEqualityComparer<T>): Linq<T>
     {
         var a = this.a;
         var e;
@@ -195,7 +195,7 @@ class Linq<T>
         return this.a[index];
     }
 
-    Except(except: T[], comparer?: AssertSharp.IEqualityComparer<T>): Linq<T>
+    Except(except: T[], comparer?: LinqSharp.IEqualityComparer<T>): Linq<T>
     {
         var a = this.a;
 
@@ -203,7 +203,7 @@ class Linq<T>
         var hashTable = {};
 
         var e, eHash: number;
-        var getHash = comparer ? comparer.GetHashCode : e => AssertSharp.GetHashCode(e);
+        var getHash = comparer ? comparer.GetHashCode : e => LinqSharp.GetHashCode(e);
 
         for (var i = 0, n = except.length; i < n; ++i)
         {
@@ -258,10 +258,10 @@ class Linq<T>
 
     GroupBy<TKey, TElement>(keySelector: (e: T) => TKey
         , elementSelector?: (e: T) => TElement
-        , comparer?: AssertSharp.IEqualityComparer<TKey>): Linq<any>
+        , comparer?: LinqSharp.IEqualityComparer<TKey>): Linq<any>
     {
         elementSelector = elementSelector || (o => <any>o);
-        comparer = comparer || { Equals: (a, b) => a == b, GetHashCode: (e) => AssertSharp.GetHashCode(e) };
+        comparer = comparer || { Equals: (a, b) => a == b, GetHashCode: (e) => LinqSharp.GetHashCode(e) };
 
         var a = this.a;
 
@@ -285,7 +285,7 @@ class Linq<T>
         }
 
         var keys = Object.keys(hashs);
-        var ret: AssertSharp.IGrouping<TKey, T>[] = [];
+        var ret: LinqSharp.IGrouping<TKey, T>[] = [];
         for (var i = 0, n = keys.length; i < n; ++i)
         {
             ret.push(hashs[keys[i]]);
@@ -294,7 +294,7 @@ class Linq<T>
         return new Linq<any>(ret);
     }
 
-    IndexOf(e: T, comparer?: AssertSharp.IEqualityComparer<T>): number
+    IndexOf(e: T, comparer?: LinqSharp.IEqualityComparer<T>): number
     {
         var a = this.a;
 
@@ -324,7 +324,7 @@ class Linq<T>
         return -1;
     }
 
-    Intersect(array: T[], comparer?: AssertSharp.IEqualityComparer<T>): Linq<T>
+    Intersect(array: T[], comparer?: LinqSharp.IEqualityComparer<T>): Linq<T>
     {
         var result: T[] = [];
 
@@ -343,7 +343,7 @@ class Linq<T>
         , outerKeySelector: (e: T) => TKey
         , innerKeySelector: (e: TInner) => TKey
         , resultSelector: (outer: T, inner: TInner) => TResult
-        , comparer?: AssertSharp.IEqualityComparer<TKey>): Linq<TResult>
+        , comparer?: LinqSharp.IEqualityComparer<TKey>): Linq<TResult>
     {
         var result: TResult[] = [];
 
@@ -677,14 +677,14 @@ class Linq<T>
         return new Linq<T>(result);
     }
 
-    Union(second: T[], comparer?: AssertSharp.IEqualityComparer<T>): Linq<T>
+    Union(second: T[], comparer?: LinqSharp.IEqualityComparer<T>): Linq<T>
     {
         var a = this.a;
         var result: T[] = [];
         var hashTable = {};
 
         var e, eHash: number;
-        var getHash = comparer ? comparer.GetHashCode : e => AssertSharp.GetHashCode(e);
+        var getHash = comparer ? comparer.GetHashCode : e => LinqSharp.GetHashCode(e);
 
         for (var i = 0, n = a.length; i < n; ++i)
         {

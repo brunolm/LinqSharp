@@ -8,9 +8,7 @@ var _assertsharp = require("assertsharp");
 
 var _assertsharp2 = _interopRequireDefault(_assertsharp);
 
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function assert(expected, actual) {
     var errorMessage = arguments.length <= 2 || arguments[2] === undefined ? "Test fail" : arguments[2];

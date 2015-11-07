@@ -2,17 +2,19 @@
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
 
-function _instanceof(left, right) { if (right != null && right[Symbol.hasInstance]) { return right[Symbol.hasInstance](left); } else { return left instanceof right; } }
-
-var AssertSharp;
-(function (AssertSharp) {
+var LinqSharp = exports.LinqSharp = undefined;
+(function (LinqSharp) {
     function GetHashCode(e) {
-        if (_instanceof(e, Number)) return e.valueOf();
-        var s = _instanceof(e, Object) ? StringifyNonCircular(e) : e.toString();
+        if (e instanceof Number) return e.valueOf();
+        var s = e instanceof Object ? StringifyNonCircular(e) : e.toString();
         var hash = 0;
         if (s.length === 0) return hash;
         for (var i = 0; i < s.length; ++i) {
@@ -20,13 +22,13 @@ var AssertSharp;
         }
         return hash;
     }
-    AssertSharp.GetHashCode = GetHashCode;
+    LinqSharp.GetHashCode = GetHashCode;
     ;
     function StringifyNonCircular(obj) {
         var s = s || "";
         for (var i in obj) {
             var o = obj[i];
-            if (o && (_instanceof(o, Array) || o.IsPlain())) {
+            if (o && (o instanceof Array || o.IsPlain())) {
                 s += i + ":" + JSON.stringify(o);
             } else if (o && (typeof o === "undefined" ? "undefined" : _typeof(o)) === "object") {
                 s += i + ":" + "$ref#" + o;
@@ -36,9 +38,9 @@ var AssertSharp;
         }
         return s;
     }
-    AssertSharp.StringifyNonCircular = StringifyNonCircular;
+    LinqSharp.StringifyNonCircular = StringifyNonCircular;
     ;
-})(AssertSharp = exports.AssertSharp || (exports.AssertSharp = {}));
+})(LinqSharp || (exports.LinqSharp = LinqSharp = {}));
 
 var Linq = (function () {
     function Linq() {
@@ -163,7 +165,7 @@ var Linq = (function () {
             var hashTable = {};
             var e, eHash;
             var getHash = comparer ? comparer.GetHashCode : function (e) {
-                return AssertSharp.GetHashCode(e);
+                return LinqSharp.GetHashCode(e);
             };
             for (var i = 0, n = except.length; i < n; ++i) {
                 hashTable[getHash(except[i])] = 1;
@@ -207,7 +209,7 @@ var Linq = (function () {
             comparer = comparer || { Equals: function Equals(a, b) {
                     return a == b;
                 }, GetHashCode: function GetHashCode(e) {
-                    return AssertSharp.GetHashCode(e);
+                    return LinqSharp.GetHashCode(e);
                 } };
             var a = this.a;
             var key, hashKey, reHashKey;
@@ -504,7 +506,7 @@ var Linq = (function () {
             var hashTable = {};
             var e, eHash;
             var getHash = comparer ? comparer.GetHashCode : function (e) {
-                return AssertSharp.GetHashCode(e);
+                return LinqSharp.GetHashCode(e);
             };
             for (var i = 0, n = a.length; i < n; ++i) {
                 e = a[i];
