@@ -13,14 +13,14 @@ npm i linqsharp -S
 Usage:
 
 ```
-import Linq from "assertsharp"; // TS or Babel
-var Linq = require("assertsharp").default; // ES5-
+import Linq from "linqsharp"; // TS or Babel
+var Linq = require("linqsharp").default; // ES5-
 ```
 
 To access inner interfaces
 
 ```
-import Linq, { LinqSharp } from "assertsharp";
+import Linq, { LinqSharp } from "linqsharp";
 ```
 
 # TypeScript definition
